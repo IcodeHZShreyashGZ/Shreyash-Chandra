@@ -16,8 +16,9 @@ export function TechStack() {
     },
     {
       title: "Tools & Others",
-      skills: ["Git", "GitHub Actions", "Jest", "Cypress", "Figma", "Linux"]
+      skills: ["Git", "GitHub Actions", "Jest", "Cypress", "Figma", "Linux", "Render", "Vercel"]
     }
+  
   ];
 
   return (

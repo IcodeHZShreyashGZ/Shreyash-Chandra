@@ -55,7 +55,7 @@ export function Hero() {
               href="#"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-surface-container-high text-on-surface border border-outline-variant/20 hover:bg-surface-container-highest transition-colors"
             >
-              Download Resume
+              Download Resume(Coming Soon!)
               <Download className="w-4 h-4" />
             </a>
           </motion.div>
