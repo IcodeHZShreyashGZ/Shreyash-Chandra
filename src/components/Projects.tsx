@@ -10,7 +10,7 @@ export function Projects() {
         "An intelligent email assistant powered by AI to help users draft, review, and manage their emails more efficiently.(Request access for demo)",
       image: "https://i.ibb.co/HT3SX4hS/image.png",
       tags: ["Pre-Alpha", "AI", "Productivity"],
-      link: "https://ai-email-assistant-three-sable.vercel.app/",
+      link: "https://ai-email-assistant-git-main-hishreyashgiis-4432s-projects.vercel.app/",
       github: "https://github.com/IcodeHZShreyashGZ/AI-Email-Assistant",
     },
   ];
