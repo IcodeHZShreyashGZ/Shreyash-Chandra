@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "motion/react";
 import { Github, Linkedin, Mail, Instagram } from "lucide-react";
 

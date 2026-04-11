@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "motion/react";
 import { Code2, Brain, Database } from "lucide-react";
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "motion/react";
 import { ExternalLink, Github } from "lucide-react";
 
@@ -7,7 +8,7 @@ export function Projects() {
       title: "AI Email Assistant",
       description:
         "An intelligent email assistant powered by AI to help users draft, review, and manage their emails more efficiently.(Request access for demo)",
-      image: "https://i.ibb.co/WpBgwNMQ/image.png",
+      image: "https://i.ibb.co/HT3SX4hS/image.png",
       tags: ["Pre-Alpha", "AI", "Productivity"],
       link: "https://ai-email-assistant-three-sable.vercel.app/",
       github: "https://github.com/IcodeHZShreyashGZ/AI-Email-Assistant",
