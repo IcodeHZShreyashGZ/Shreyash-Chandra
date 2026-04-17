@@ -13,6 +13,16 @@ export function Projects() {
       link: "https://ai-email-assistant-git-main-hishreyashgiis-4432s-projects.vercel.app/",
       github: "https://github.com/IcodeHZShreyashGZ/AI-Email-Assistant",
     },
+
+    {
+      title: "AI Powered Legal Contract Review System",
+      description:
+        "A high-performance, AI-driven legal technology platform that automates contract due diligence, clause extraction, and multi-vector risk assessment",
+      image: "https://i.ibb.co/1tD6sxHd/image.png",
+      tags: ["Not Deployed", "AI", "Productivity", "Parser", "Risk Assessment"],
+      link: "#",
+      github: "https://github.com/IcodeHZShreyashGZ/AI-Email-Assistant",
+    },
   ];
 
   return (
