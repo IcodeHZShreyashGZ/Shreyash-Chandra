@@ -21,7 +21,8 @@ export function Projects() {
       image: "https://i.ibb.co/1tD6sxHd/image.png",
       tags: ["Not Deployed", "AI", "Productivity", "Parser", "Risk Assessment"],
       link: "#",
-      github: "https://github.com/IcodeHZShreyashGZ/AI-Email-Assistant",
+      github:
+        "https://github.com/IcodeHZShreyashGZ/AI-Powered-Legal-Contract-Review---Analysis-System",
     },
   ];
 
