@@ -1,74 +1,419 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
-
-@theme {
-  --color-surface: var(--surface);
-  --color-on-surface: var(--on-surface);
-  --color-on-surface-variant: var(--on-surface-variant);
-  --color-primary: var(--primary);
-  --color-primary-container: var(--primary-container);
-  --color-secondary: var(--secondary);
-  --color-secondary-container: var(--secondary-container);
-  --color-on-secondary: var(--on-secondary);
-  --color-surface-container-lowest: var(--surface-container-lowest);
-  --color-surface-container-low: var(--surface-container-low);
-  --color-surface-container-high: var(--surface-container-high);
-  --color-surface-container-highest: var(--surface-container-highest);
-  --color-outline-variant: var(--outline-variant);
-  
-  --font-headline: "Public Sans", sans-serif;
-  --font-body: "Inter", sans-serif;
-  --font-mono: "IBM Plex Mono", monospace;
-}
 
 @layer base {
   :root {
-    --surface: #f8fafc;
-    --on-surface: #1e293b;
-    --on-surface-variant: #64748b;
-    --primary: #0284c7;
-    --primary-container: #e0f2fe;
-    --secondary: #10b981;
-    --secondary-container: #d1fae5;
-    --on-secondary: #ffffff;
-    --surface-container-lowest: #ffffff;
-    --surface-container-low: #ffffff;
-    --surface-container-high: #f1f5f9;
-    --surface-container-highest: #e2e8f0;
-    --outline-variant: #e2e8f0;
+    --paper: #F5EED8;
+    --cream: #FFF9ED;
+    --ink: #050505;
+    --white: #FFFFFF;
+    --navy: #071426;
+    --gold: #FFC247;
+    --sunset: #FF4B18;
+    --azure: #087FE5;
+    --emerald: #008B69;
+
+    --page-bg: var(--paper);
+    --page-text: var(--ink);
+    --primary: var(--gold);
+    --accent: var(--sunset);
+
+    /* Neo-Brutalist Elevation Shadows */
+    --shadow-sm: 2px 2px 0px 0px #050505;
+    --shadow-md: 4px 4px 0px 0px #050505;
+    --shadow-lg: 6px 6px 0px 0px #050505;
+    --shadow-xl: 8px 8px 0px 0px #050505;
+
+    --shadow-orange-lg: 6px 6px 0px 0px #FF4B18;
+    --shadow-blue-lg: 6px 6px 0px 0px #087FE5;
+    --shadow-gold-lg: 6px 6px 0px 0px #FFC247;
+    --shadow-emerald-lg: 6px 6px 0px 0px #008B69;
+
+    /* Fonts */
+    --font-display: "Archivo", sans-serif;
+    --font-pixel: "Press Start 2P", monospace;
+    --font-mono: "Space Mono", monospace;
+    --font-serif: "Newsreader", serif;
+    --font-script: "Yellowtail", cursive;
   }
 
-  .dark {
-    --surface: #131313;
-    --on-surface: #e5e2e1;
-    --on-surface-variant: #bfc8ce;
-    --primary: #86d0f7;
-    --primary-container: #00688b;
-    --secondary: #ecffe3;
-    --secondary-container: #13ff43;
-    --on-secondary: #003907;
-    --surface-container-lowest: #0e0e0e;
-    --surface-container-low: #1c1b1b;
-    --surface-container-high: #2a2a2a;
-    --surface-container-highest: #353534;
-    --outline-variant: #3f484d;
+  /* Mood: Golden Sunset Hour */
+  html[data-mood="sunset"] {
+    --paper: #FEE8D6;
+    --cream: #FFF2E6;
+    --primary: #FF4B18;
+    --accent: #E11D48;
+    --gold: #FF9E2C;
+    --page-bg: #FEE8D6;
+  }
+
+  /* Mood: Midnight Crucible */
+  html[data-mood="midnight"] {
+    --paper: #0B192C;
+    --cream: #132238;
+    --white: #172740;
+    --ink: #F5EED8;
+    --navy: #050E1A;
+    --primary: #00E699;
+    --gold: #00E699;
+    --sunset: #FF3366;
+    --azure: #00B4D8;
+    --emerald: #00E699;
+    --page-bg: #071426;
+    --page-text: #F5EED8;
+
+    --shadow-sm: 2px 2px 0px 0px #00E699;
+    --shadow-md: 4px 4px 0px 0px #00E699;
+    --shadow-lg: 6px 6px 0px 0px #00E699;
+    --shadow-xl: 8px 8px 0px 0px #00E699;
+  }
+
+  /* Konami Overclock Turbo Mode */
+  body.turbo-mode {
+    filter: saturate(1.8) contrast(1.2);
+    animation: rainbowShift 6s linear infinite alternate;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-surface text-on-surface font-body selection:bg-primary/30 selection:text-primary transition-colors duration-500;
+    background-color: var(--page-bg);
+    color: var(--page-text);
+    font-family: var(--font-mono);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 }
 
-@layer utilities {
-  .glass-card {
-    background: rgba(var(--surface-container-high-rgb, 53, 53, 52), 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-  
-  .cyber-grid {
-    background-image: linear-gradient(to right, color-mix(in srgb, var(--primary) 5%, transparent) 1px, transparent 1px),
-                      linear-gradient(to bottom, color-mix(in srgb, var(--primary) 5%, transparent) 1px, transparent 1px);
-    background-size: 40px 40px;
+/* Custom Font Families */
+.font-pixel {
+  font-family: var(--font-pixel);
+  image-rendering: pixelated;
+  letter-spacing: 0.05em;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-stretch: 125%;
+  letter-spacing: -0.03em;
+  font-weight: 900;
+}
+
+.font-mono-tech {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-script-accent {
+  font-family: var(--font-script);
+}
+
+/* Neo-Brutalism Building Blocks */
+.brutalist-border {
+  border: 3px solid var(--ink);
+}
+
+.brutalist-border-sm {
+  border: 2px solid var(--ink);
+}
+
+.brutalist-border-thick {
+  border: 4px solid var(--ink);
+}
+
+.brutalist-shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.brutalist-shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.brutalist-shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.brutalist-shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+
+/* Brutalist Button Component */
+.brutalist-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border: 3px solid var(--ink);
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 4px 4px 0px 0px var(--ink);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+  user-select: none;
+}
+
+.brutalist-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--ink);
+}
+
+.brutalist-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--ink);
+}
+
+/* Brutalist Card */
+.brutalist-card {
+  border: 3px solid var(--ink);
+  background: var(--white);
+  box-shadow: 4px 4px 0px 0px var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.brutalist-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0px 0px var(--sunset);
+}
+
+/* 3D Tilt Card Base */
+.tilt-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
+.tilt-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity 0.25s ease-out;
+  z-index: 20;
+}
+
+/* Gleam Sweep Animation */
+.gleam-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.gleam-sweep::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  bottom: -60%;
+  left: 0;
+  width: 45%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+  transform: skewX(-25deg);
+  animation: arcadeGleamSweep 4s infinite;
+  pointer-events: none;
+}
+
+/* Atmospheric Keyframes */
+@keyframes cloudDrift {
+  0% { transform: translateX(-240px); }
+  100% { transform: translateX(calc(100vw + 240px)); }
+}
+
+@keyframes seagullFly {
+  0% { transform: translateX(-160px); }
+  100% { transform: translateX(calc(100vw + 160px)); }
+}
+
+@keyframes seagullWings {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(-0.8) translateY(-3px); }
+}
+
+@keyframes sunMoteFloat {
+  0% { opacity: 0; transform: translateY(0px) scale(0.8); }
+  30% { opacity: 0.9; }
+  70% { opacity: 0.8; }
+  100% { opacity: 0; transform: translateY(-100px) scale(1.3); }
+}
+
+@keyframes waveFoamWash {
+  0%, 100% { opacity: 0.35; transform: scaleY(0.92) translateY(0); }
+  50% { opacity: 0.85; transform: scaleY(1.18) translateY(-4px); }
+}
+
+@keyframes arcadeGleamSweep {
+  0% { transform: translateX(-160%) skewX(-25deg); }
+  25%, 100% { transform: translateX(360%) skewX(-25deg); }
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes retroPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.94); }
+}
+
+@keyframes crabScissor {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-18deg); }
+}
+
+@keyframes crabFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes rainbowShift {
+  0% { filter: hue-rotate(0deg) contrast(1.15); }
+  100% { filter: hue-rotate(360deg) contrast(1.15); }
+}
+
+/* Utility Animation Classes */
+.animate-cloud-slow {
+  animation: cloudDrift 55s linear infinite;
+  will-change: transform;
+}
+
+.animate-cloud-fast {
+  animation: cloudDrift 38s linear infinite;
+  will-change: transform;
+}
+
+.animate-seagull-fly {
+  animation: seagullFly 20s linear infinite;
+  will-change: transform;
+}
+
+.animate-seagull-wings {
+  animation: seagullWings 0.35s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.animate-sun-mote {
+  animation: sunMoteFloat 6s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-wave-wash {
+  animation: waveFoamWash 4.5s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-retro-pulse {
+  animation: retroPulse 1.8s ease-in-out infinite;
+}
+
+.animate-crab-float {
+  animation: crabFloat 3s ease-in-out infinite;
+}
+
+.animate-claw-left {
+  animation: crabScissor 0.6s ease-in-out infinite alternate;
+  transform-origin: 20% 80%;
+}
+
+.animate-claw-right {
+  animation: crabScissor 0.6s ease-in-out infinite alternate-reverse;
+  transform-origin: 80% 80%;
+}
+
+/* CRT Scanline Shader Overlay */
+.crt-overlay::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.28) 50%),
+              linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04));
+  z-index: 999;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Halftone Risograph Pattern Field */
+.halftone-field {
+  background-image: radial-gradient(var(--ink) 1.2px, transparent 1.6px);
+  background-size: 20px 20px;
+}
+
+.halftone-subtle {
+  background-image: radial-gradient(rgba(5, 5, 5, 0.12) 1px, transparent 1.4px);
+  background-size: 16px 16px;
+}
+
+/* Screen Route Grid Curtain */
+.grid-route {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-template-rows: repeat(7, minmax(0, 1fr));
+  pointer-events: none;
+}
+
+.grid-route-tile {
+  width: 100%;
+  height: 100%;
+  background: var(--ink);
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Pixel Border Utility */
+.pixel-corners {
+  clip-path: polygon(
+    0 4px, 4px 4px, 4px 0,
+    calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px,
+    100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%,
+    4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px)
+  );
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-cloud-slow,
+  .animate-cloud-fast,
+  .animate-seagull-fly,
+  .animate-sun-mote,
+  .animate-wave-wash,
+  .animate-marquee,
+  .animate-crab-float {
+    animation: none !important;
+    transform: none !important;
   }
 }

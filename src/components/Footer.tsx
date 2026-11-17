@@ -1,70 +1,81 @@
-// @ts-nocheck
-import { motion } from "motion/react";
-import { Github, Linkedin, Mail, Instagram } from "lucide-react";
+import { sound } from '../utils/audio';
 
 export function Footer() {
   return (
-    <footer className="py-12 px-4 sm:px-6 lg:px-8 relative z-10 border-t border-outline-variant/10 bg-surface">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center gap-2"
-        >
-          <span className="text-2xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-            SC.
-          </span>
-        </motion.div>
+    <footer className="relative bg-[#050505] text-[#F5EED8] border-t-4 border-[#050505] py-12 px-4 sm:px-6 lg:px-8 select-none z-10">
+      <div className="max-w-7xl mx-auto space-y-8">
+        
+        {/* Top Tier */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-b-2 border-[#F5EED8]/15 pb-8">
+          
+          {/* Brand Identity */}
+          <div className="flex items-center gap-3">
+            <span className="text-2xl">🌴</span>
+            <div>
+              <div className="font-display text-2xl text-[#FFFFFF] tracking-tight">
+                SHREYASH CHANDRA
+              </div>
+              <div className="font-pixel text-[9px] text-[#FFC247] tracking-wider">
+                FULL-STACK ARCHITECT // COEP TECH UNIVERSITY
+              </div>
+            </div>
+          </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex items-center gap-4"
-        >
-          <a
-            href="https://github.com/IcodeHZShreyashGZ"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-colors"
-            aria-label="GitHub"
-          >
-            <Github className="w-5 h-5" />
-          </a>
+          {/* Quick Waypoint Sector Links */}
+          <div className="flex flex-wrap items-center justify-center gap-3 font-pixel text-[9px]">
+            <a href="#hero" onClick={() => sound.playBlip()} className="hover:text-[#FFC247] transition-colors">
+              [§01 HERO]
+            </a>
+            <a href="#about" onClick={() => sound.playBlip()} className="hover:text-[#FFC247] transition-colors">
+              [§02 MISSION]
+            </a>
+            <a href="#skills" onClick={() => sound.playBlip()} className="hover:text-[#FFC247] transition-colors">
+              [§03 ARSENAL]
+            </a>
+            <a href="#projects" onClick={() => sound.playBlip()} className="hover:text-[#FFC247] transition-colors">
+              [§04 PROJECTS]
+            </a>
+            <a href="#experience" onClick={() => sound.playBlip()} className="hover:text-[#FFC247] transition-colors">
+              [§05 RUNTIME]
+            </a>
+            <a href="#contact" onClick={() => sound.playBlip()} className="hover:text-[#FFC247] transition-colors">
+              [§06 TRANSMIT]
+            </a>
+          </div>
 
-          <a
-            href="https://www.linkedin.com/in/shreyash-chandra-9ba45432a"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-[#0A66C2] hover:bg-[#0A66C2]/10 transition-colors"
-            aria-label="LinkedIn"
-          >
-            <Linkedin className="w-5 h-5" />
-          </a>
+        </div>
 
-          <a
-            href="https://www.instagram.com/anjaan_kashti_06/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-[#E1306C] hover:bg-[#E1306C]/10 transition-colors"
-            aria-label="Instagram"
-          >
-            <Instagram className="w-5 h-5" />
-          </a>
-          <button
-            onClick={() => {
-              navigator.clipboard.writeText("hishreyashgiis@gmail.com");
-              alert("Email copied to clipboard!");
-            }}
-            className="p-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors"
-            aria-label="Email"
-          >
-            <Mail className="w-5 h-5" />
-          </button>
-        </motion.div>
+        {/* Middle Tier: Konami Code Alert & Telemetry */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono-tech">
+          
+          {/* Konami Easter Egg Hint */}
+          <div className="p-3 bg-[#071426] border-2 border-[#FFC247]/30 flex items-center justify-between">
+            <span className="text-[#FFC247] font-bold">SECRET ARCADE CHEAT:</span>
+            <code className="font-pixel text-[9px] text-[#00E699] tracking-wider">
+              ↑ ↑ ↓ ↓ ← → ← → B A
+            </code>
+          </div>
+
+          {/* Telemetry Status */}
+          <div className="p-3 bg-[#071426] border-2 border-[#087FE5]/30 flex items-center justify-between text-[#F5EED8]/80">
+            <span>GRID TELEMETRY:</span>
+            <span className="font-pixel text-[9px] text-[#087FE5]">
+              18.5204° N, 73.8567° E [ONLINE]
+            </span>
+          </div>
+
+        </div>
+
+        {/* Bottom Tier: Copyright & Engineering Directive Stamp */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono-tech text-[11px] text-[#F5EED8]/60 pt-2">
+          <div>
+            © {new Date().getFullYear()} Shreyash Chandra. All rights reserved.
+          </div>
+          <div className="font-pixel text-[8px] text-[#FF4B18] tracking-widest text-center sm:text-right">
+            ★ DESIGNED UNDER TROPICAL CYBER-BRUTALISM DIRECTIVE ★
+          </div>
+        </div>
+
       </div>
     </footer>
   );
